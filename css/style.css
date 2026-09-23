@@ -1,0 +1,178 @@
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --accent: #7c5cff;
+  --accent-2: #22d3ee;
+  --text: #f4f7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(1200px 800px at 10% 10%, rgba(124, 92, 255, 0.45), transparent 50%),
+    radial-gradient(900px 700px at 90% 20%, rgba(34, 211, 238, 0.28), transparent 46%),
+    radial-gradient(800px 700px at 70% 90%, rgba(244, 114, 182, 0.32), transparent 50%),
+    linear-gradient(160deg, #0b1020 0%, #15122b 45%, #0c1a2e 100%);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: float 14s ease-in-out infinite;
+}
+
+.orb-a {
+  width: 340px;
+  height: 340px;
+  left: -80px;
+  top: 12%;
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.7), transparent 68%);
+}
+
+.orb-b {
+  width: 280px;
+  height: 280px;
+  right: -40px;
+  top: 8%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.55), transparent 68%);
+  animation-delay: -4s;
+}
+
+.orb-c {
+  width: 420px;
+  height: 420px;
+  right: 15%;
+  bottom: -140px;
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.5), transparent 68%);
+  animation-delay: -7s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(18px, -24px, 0) scale(1.08);
+  }
+}
+
+.glass {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 20px 60px rgba(8, 10, 30, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.glass-input::placeholder {
+  color: rgba(244, 247, 255, 0.55);
+}
+
+.glass-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(124, 92, 255, 0.85);
+  box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.18);
+}
+
+.tab-indicator {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+  animation: rise 0.35s ease;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7c5cff 0%, #5b8cff 55%, #22d3ee 100%);
+  box-shadow: 0 12px 30px rgba(92, 110, 255, 0.35);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.06);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 50;
+  transition: all 0.28s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.modal {
+  display: none;
+}
+
+.modal.open {
+  display: flex;
+  animation: rise 0.25s ease;
+}
+
+.success-view {
+  display: none;
+}
+
+.success-view.show {
+  display: flex;
+}
+
+.error-text {
+  min-height: 1.1rem;
+}
