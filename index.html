@@ -25,77 +25,117 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="font-vazir">
-    <div class="bg-scene">
+    <div class="bg-scene" aria-hidden="true">
+      <div class="mesh"></div>
+      <div class="grid-overlay"></div>
       <div class="orb orb-a"></div>
       <div class="orb orb-b"></div>
       <div class="orb orb-c"></div>
+      <div class="orb orb-d"></div>
+      <div class="sparkles"></div>
     </div>
 
     <main class="relative z-10 min-h-screen flex items-center justify-center p-4 sm:p-8">
-      <section class="w-full max-w-5xl grid lg:grid-cols-2 gap-6 items-stretch">
-        <aside class="glass hidden lg:flex flex-col justify-between rounded-3xl p-10">
+      <section class="w-full max-w-[1100px] grid lg:grid-cols-[1.05fr_0.95fr] gap-6 items-stretch">
+        <aside class="hero-panel hidden lg:flex flex-col justify-between rounded-[2rem] p-10 relative overflow-hidden">
+          <div class="hero-shine"></div>
           <div>
-            <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm">
-              <span class="h-2 w-2 rounded-full bg-cyan-300"></span>
-              تجربه ورود مدرن
+            <div class="badge">
+              <span class="pulse-dot"></span>
+              ورود امن و مدرن
             </div>
-            <h1 class="mt-8 text-4xl font-extrabold leading-tight">
-              به فضای شیشه‌ای
-              <span class="bg-clip-text text-transparent bg-gradient-to-l from-cyan-300 to-violet-300">ورود امن</span>
-              خوش آمدید
+            <h1 class="mt-8 text-[2.6rem] font-extrabold leading-[1.35] tracking-tight">
+              جایی که طراحی
+              <span class="gradient-text">درخشان</span>
+              با امنیت واقعی گره می‌خورد
             </h1>
-            <p class="mt-4 text-white/75 leading-8">
-              با ایمیل یا شماره تلفن وارد شوید، حساب بسازید و در چند ثانیه به پنل خود دسترسی پیدا کنید.
+            <p class="mt-5 text-white/70 leading-8 text-[1.05rem]">
+              با ایمیل یا شماره همراه وارد شوید، حساب بسازید و در چند ثانیه به فضای شخصی خود برسید.
             </p>
           </div>
-          <ul class="space-y-4 text-white/80">
-            <li class="flex items-center gap-3">
-              <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10 border border-white/15">✦</span>
-              طراحی گلس‌مورفیسم با رنگ‌بندی زنده
-            </li>
-            <li class="flex items-center gap-3">
-              <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10 border border-white/15">◎</span>
-              ورود با ایمیل یا شماره همراه
-            </li>
-            <li class="flex items-center gap-3">
-              <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10 border border-white/15">✧</span>
-              بازیابی سریع رمز عبور
-            </li>
-          </ul>
+
+          <div class="space-y-4">
+            <div class="stat-row">
+              <div class="stat-card">
+                <strong>۲ ثانیه</strong>
+                <span>زمان ورود</span>
+              </div>
+              <div class="stat-card">
+                <strong>۲۴۶+</strong>
+                <span>کاربر فعال</span>
+              </div>
+              <div class="stat-card">
+                <strong>AES</strong>
+                <span>رمزنگاری</span>
+              </div>
+            </div>
+            <ul class="feature-list">
+              <li>
+                <span class="icon-chip">✦</span>
+                گلس‌مورفیسم با نورهای زنده
+              </li>
+              <li>
+                <span class="icon-chip">◎</span>
+                ورود با ایمیل یا شماره همراه
+              </li>
+              <li>
+                <span class="icon-chip">✧</span>
+                بازیابی سریع رمز عبور
+              </li>
+            </ul>
+          </div>
         </aside>
 
-        <article class="glass rounded-3xl p-6 sm:p-8 relative overflow-hidden">
-          <div id="authCard">
-            <div class="relative mb-6 grid grid-cols-2 rounded-2xl bg-white/10 p-1 border border-white/15">
-              <span id="tabIndicator" class="tab-indicator absolute top-1 bottom-1 right-1 w-[calc(50%-4px)] rounded-xl bg-white/20"></span>
+        <article class="auth-card rounded-[2rem] p-6 sm:p-8 relative overflow-hidden">
+          <div class="card-glow"></div>
+          <div id="authCard" class="relative">
+            <div class="lg:hidden mb-5">
+              <div class="badge">
+                <span class="pulse-dot"></span>
+                ورود امن
+              </div>
+              <h2 class="mt-3 text-2xl font-extrabold">خوش آمدید</h2>
+            </div>
+
+            <div class="relative mb-6 grid grid-cols-2 rounded-2xl bg-white/[0.06] p-1 border border-white/10">
+              <span id="tabIndicator" class="tab-indicator absolute top-1 bottom-1 right-1 w-[calc(50%-4px)] rounded-xl"></span>
               <button type="button" id="tabLogin" class="relative z-10 py-2.5 text-sm font-semibold">ورود</button>
-              <button type="button" id="tabSignup" class="relative z-10 py-2.5 text-sm font-semibold text-white/70">ثبت‌نام</button>
+              <button type="button" id="tabSignup" class="relative z-10 py-2.5 text-sm font-semibold text-white/60">ثبت‌نام</button>
             </div>
 
             <form id="loginForm" class="panel active space-y-4" novalidate>
               <div>
-                <label class="mb-2 block text-sm text-white/80" for="loginIdentifier">ایمیل یا شماره تلفن</label>
-                <input
-                  id="loginIdentifier"
-                  name="identifier"
-                  class="glass-input w-full rounded-2xl px-4 py-3"
-                  placeholder="مثلاً 0912... یا you@email.com"
-                  autocomplete="username"
-                />
+                <label class="mb-2 block text-sm text-white/75" for="loginIdentifier">ایمیل یا شماره تلفن</label>
+                <div class="input-wrap">
+                  <span class="input-icon" aria-hidden="true">@</span>
+                  <input
+                    id="loginIdentifier"
+                    name="identifier"
+                    class="glass-input w-full rounded-2xl px-4 py-3 pr-11"
+                    placeholder="مثلاً 0912... یا you@email.com"
+                    autocomplete="username"
+                  />
+                </div>
                 <p class="error-text mt-1 text-xs text-rose-300" data-error></p>
               </div>
               <div>
-                <label class="mb-2 block text-sm text-white/80" for="loginPassword">رمز عبور</label>
-                <div class="relative">
+                <label class="mb-2 block text-sm text-white/75" for="loginPassword">رمز عبور</label>
+                <div class="relative input-wrap">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <rect x="5" y="11" width="14" height="10" rx="2" />
+                      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+                    </svg>
+                  </span>
                   <input
                     id="loginPassword"
                     name="password"
                     type="password"
-                    class="glass-input w-full rounded-2xl px-4 py-3 pl-12"
+                    class="glass-input w-full rounded-2xl px-4 py-3 pr-11 pl-12"
                     placeholder="رمز عبور خود را وارد کنید"
                     autocomplete="current-password"
                   />
-                  <button type="button" class="toggle-password absolute left-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white" data-target="loginPassword" aria-label="نمایش رمز عبور">
+                  <button type="button" class="toggle-password absolute left-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white" data-target="loginPassword" aria-label="نمایش رمز عبور">
                     <svg class="icon-eye h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
                       <circle cx="12" cy="12" r="3" />
@@ -111,31 +151,43 @@
                 <p class="error-text mt-1 text-xs text-rose-300" data-error></p>
               </div>
               <div class="flex items-center justify-between text-sm">
-                <label class="flex items-center gap-2 text-white/75">
-                  <input type="checkbox" class="accent-violet-400" />
+                <label class="flex items-center gap-2 text-white/70">
+                  <input type="checkbox" class="accent-fuchsia-400" />
                   مرا به خاطر بسپار
                 </label>
-                <button type="button" id="forgotOpen" class="text-cyan-200 hover:text-white">فراموشی رمز عبور؟</button>
+                <button type="button" id="forgotOpen" class="link-accent">فراموشی رمز عبور؟</button>
               </div>
-              <button type="submit" class="btn-primary w-full rounded-2xl py-3 font-semibold">ورود به حساب</button>
+              <button type="submit" class="btn-primary w-full rounded-2xl py-3.5 font-semibold">ورود به حساب</button>
             </form>
 
             <form id="signupForm" class="panel space-y-4" novalidate>
               <div>
-                <label class="mb-2 block text-sm text-white/80" for="signupName">نام کامل</label>
-                <input id="signupName" name="name" class="glass-input w-full rounded-2xl px-4 py-3" placeholder="نام و نام خانوادگی" />
+                <label class="mb-2 block text-sm text-white/75" for="signupName">نام کامل</label>
+                <div class="input-wrap">
+                  <span class="input-icon" aria-hidden="true">☺</span>
+                  <input id="signupName" name="name" class="glass-input w-full rounded-2xl px-4 py-3 pr-11" placeholder="نام و نام خانوادگی" />
+                </div>
                 <p class="error-text mt-1 text-xs text-rose-300" data-error></p>
               </div>
               <div>
-                <label class="mb-2 block text-sm text-white/80" for="signupIdentifier">ایمیل یا شماره تلفن</label>
-                <input id="signupIdentifier" name="identifier" class="glass-input w-full rounded-2xl px-4 py-3" placeholder="ایمیل یا شماره همراه" />
+                <label class="mb-2 block text-sm text-white/75" for="signupIdentifier">ایمیل یا شماره تلفن</label>
+                <div class="input-wrap">
+                  <span class="input-icon" aria-hidden="true">@</span>
+                  <input id="signupIdentifier" name="identifier" class="glass-input w-full rounded-2xl px-4 py-3 pr-11" placeholder="ایمیل یا شماره همراه" />
+                </div>
                 <p class="error-text mt-1 text-xs text-rose-300" data-error></p>
               </div>
               <div>
-                <label class="mb-2 block text-sm text-white/80" for="signupPassword">رمز عبور</label>
-                <div class="relative">
-                  <input id="signupPassword" name="password" type="password" class="glass-input w-full rounded-2xl px-4 py-3 pl-12" placeholder="حداقل ۸ کاراکتر" />
-                  <button type="button" class="toggle-password absolute left-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white" data-target="signupPassword" aria-label="نمایش رمز عبور">
+                <label class="mb-2 block text-sm text-white/75" for="signupPassword">رمز عبور</label>
+                <div class="relative input-wrap">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <rect x="5" y="11" width="14" height="10" rx="2" />
+                      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+                    </svg>
+                  </span>
+                  <input id="signupPassword" name="password" type="password" class="glass-input w-full rounded-2xl px-4 py-3 pr-11 pl-12" placeholder="حداقل ۸ کاراکتر" />
+                  <button type="button" class="toggle-password absolute left-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white" data-target="signupPassword" aria-label="نمایش رمز عبور">
                     <svg class="icon-eye h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
                       <circle cx="12" cy="12" r="3" />
@@ -151,10 +203,16 @@
                 <p class="error-text mt-1 text-xs text-rose-300" data-error></p>
               </div>
               <div>
-                <label class="mb-2 block text-sm text-white/80" for="signupConfirm">تکرار رمز عبور</label>
-                <div class="relative">
-                  <input id="signupConfirm" name="confirm" type="password" class="glass-input w-full rounded-2xl px-4 py-3 pl-12" placeholder="رمز عبور را دوباره وارد کنید" />
-                  <button type="button" class="toggle-password absolute left-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white" data-target="signupConfirm" aria-label="نمایش رمز عبور">
+                <label class="mb-2 block text-sm text-white/75" for="signupConfirm">تکرار رمز عبور</label>
+                <div class="relative input-wrap">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <rect x="5" y="11" width="14" height="10" rx="2" />
+                      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+                    </svg>
+                  </span>
+                  <input id="signupConfirm" name="confirm" type="password" class="glass-input w-full rounded-2xl px-4 py-3 pr-11 pl-12" placeholder="رمز عبور را دوباره وارد کنید" />
+                  <button type="button" class="toggle-password absolute left-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white" data-target="signupConfirm" aria-label="نمایش رمز عبور">
                     <svg class="icon-eye h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
                       <circle cx="12" cy="12" r="3" />
@@ -169,25 +227,35 @@
                 </div>
                 <p class="error-text mt-1 text-xs text-rose-300" data-error></p>
               </div>
-              <button type="submit" class="btn-primary w-full rounded-2xl py-3 font-semibold">ساخت حساب جدید</button>
+              <button type="submit" class="btn-primary w-full rounded-2xl py-3.5 font-semibold">ساخت حساب جدید</button>
             </form>
+
+            <div class="mt-6">
+              <div class="divider"><span>یا ادامه با</span></div>
+              <div class="mt-4 grid grid-cols-2 gap-3">
+                <button type="button" class="social-btn" data-social="گوگل">گوگل</button>
+                <button type="button" class="social-btn" data-social="گیت‌هاب">گیت‌هاب</button>
+              </div>
+            </div>
           </div>
 
-          <div id="successView" class="success-view flex-col items-center text-center py-10">
-            <div class="mb-4 grid h-16 w-16 place-items-center rounded-full bg-cyan-400/20 border border-cyan-200/30 text-2xl">✓</div>
+          <div id="successView" class="success-view flex-col items-center text-center py-12 relative">
+            <div class="success-ring mb-5">
+              <span>✓</span>
+            </div>
             <h2 id="welcomeTitle" class="text-2xl font-bold">ورود موفق</h2>
             <p id="welcomeText" class="mt-2 text-white/70">به پنل خود خوش آمدید.</p>
-            <button id="logoutBtn" type="button" class="mt-6 rounded-2xl border border-white/20 bg-white/10 px-6 py-2.5 hover:bg-white/15">خروج</button>
+            <button id="logoutBtn" type="button" class="mt-7 rounded-2xl border border-white/15 bg-white/8 px-6 py-2.5 hover:bg-white/12">خروج</button>
           </div>
         </article>
       </section>
     </main>
 
-    <div id="forgotModal" class="modal fixed inset-0 z-40 items-center justify-center bg-black/45 p-4">
-      <div class="glass w-full max-w-md rounded-3xl p-6">
+    <div id="forgotModal" class="modal fixed inset-0 z-40 items-center justify-center bg-black/55 p-4">
+      <div class="auth-card w-full max-w-md rounded-[1.6rem] p-6">
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-lg font-bold">بازیابی رمز عبور</h3>
-          <button id="forgotClose" type="button" class="rounded-full bg-white/10 px-3 py-1 text-sm">بستن</button>
+          <button id="forgotClose" type="button" class="rounded-full bg-white/10 px-3 py-1 text-sm hover:bg-white/16">بستن</button>
         </div>
         <p class="text-sm text-white/70 mb-4">ایمیل یا شماره تلفن خود را وارد کنید تا لینک بازیابی برایتان ارسال شود.</p>
         <form id="forgotForm" class="space-y-4" novalidate>
@@ -200,7 +268,7 @@
       </div>
     </div>
 
-    <div id="toast" class="toast glass rounded-2xl px-4 py-3 text-sm"></div>
+    <div id="toast" class="toast px-4 py-3 text-sm"></div>
     <script src="js/auth.js"></script>
   </body>
 </html>

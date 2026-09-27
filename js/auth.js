@@ -42,8 +42,8 @@ function showToast(message) {
 }
 
 function setError(input, message) {
-  const wrap = input.closest("div");
-  const error = wrap?.querySelector("[data-error]");
+  const group = input.closest("form > div") || input.parentElement;
+  const error = group?.querySelector("[data-error]");
   if (error) error.textContent = message || "";
   input.classList.toggle("border-rose-400", Boolean(message));
 }
@@ -196,6 +196,12 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
   signupForm.reset();
   switchTab("login");
   showToast("از حساب خارج شدید.");
+});
+
+document.querySelectorAll("[data-social]").forEach((button) => {
+  button.addEventListener("click", () => {
+    showToast(`ورود با ${button.dataset.social} به‌زودی فعال می‌شود.`);
+  });
 });
 
 switchTab("login");
